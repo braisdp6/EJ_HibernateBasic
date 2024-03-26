@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <!--********************************************************************* -->
+        <!-- Contiene nombre del  del driver de la base de datos a usar. -->
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/ej_libreria_hibernate?createDatabaseIfNotExist=true</property>
+        <property name="connection.username">root</property>
+        <property name="connection.password">abc123.</property>
+        <!--********************************************************************* -->
+        <!-- Dialecto que se usara en la conexion en este casco es el de MySql -->
+        <!-- Esta linea es opcional ya que hibenate reconoce por si solo el dialecto -->
+        <!-- <property name="dialect">org.hibernate.dialect.MySQLDialect</property> -->
+        <!-- Con este parametro a true podemos ver en la consola las sentencias que se ejecutan en MySql o en nuestra base de datos -->
+        <!-- property name="hibernate.show_sql">true</property-->
+        <!--********************************************************************* -->
+
+        <!--********************************************************************* -->
+        <!-- determina si Hibernate debe crear, actualizar o validar automáticamente las tablas
+        de la base de datos según las clases de entidad de tu aplicación.
+        Si ponemos el
+        valor->Create crea una base de datos cada inicio de la app
+        valor->update actualiza la base de datos si no existe
+        valor->Validate comprueba que la base de datos este correcta
+        valor->create-drop elimina las tablas cuando se finaliza la sesion
+        -->
+        <property name="hibernate.hbm2ddl.auto">update</property>
+        <!--********************************************************************* -->
+
+        <!--********************************************************************* -->
+        <!-- Con esta propiedad lo que consequimos es que por consola salga un formato mas "pretty" -->
+        <property name="hibernate.format_sql">true</property>
+        <!--********************************************************************* -->
+
+        <!--********************************************************************* -->
+        <!-- Con esta propiedad con que lenguaje vamos a trabajar con la base de datos (no es obligatorio)-->
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQL55Dialect</property>
+        <!--********************************************************************* -->
+
+        <!--********************************************************************* -->
+        <!-- Indicamos la clase que vamos a maper indicandole la ruta en la que se encuentra en nuestro proyecto -->
+        <mapping class="model.Autor"/>
+        <mapping class="model.Libro"/>
+        <mapping class="model.Telefono"/>
+        <!--********************************************************************* -->
+
+    </session-factory>
+</hibernate-configuration>
